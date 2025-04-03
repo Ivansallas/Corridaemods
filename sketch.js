@@ -10,10 +10,10 @@ let xJogador4 = 0;
 function draw() {
   background(220);
   textSize(40);
-  text("🥸", xJogador1, 100);
-  text("👽", xJogador2, 250);
-  text("👻", xJogador3, 350);
-  text("🤡", xJogador4, 500);
+  text("🥸", xJogador1, 80);
+  text("👽", xJogador2, 220);
+  text("👻", xJogador3, 380);
+  text("🤡", xJogador4, 550);
   rect(550, 0, 10, width);
   xJogador1 += random(5);
   xJogador2 += random(5);
