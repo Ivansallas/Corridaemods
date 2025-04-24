@@ -8,7 +8,7 @@ let xJogador3 = 0;
 let xJogador4 = 0;
 
 function draw() {
-  background(220);
+  background("gray");
   textSize(40);
   text("🥸", xJogador1, 80);
   text("👽", xJogador2, 220);
