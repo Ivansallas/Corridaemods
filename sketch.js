@@ -1,5 +1,6 @@
-let xJogador1 = 0;
-let xJogador2 = 0;
+//corrida de emojis
+let xJogador = [0, 0, 0];// lista de xjogadoresx
+let yJogador = [100, 200, 300];// lista de yjogadores
 
 function setup() {
   createCanvas(400, 400);
@@ -13,14 +14,19 @@ function draw() {
 }
 
 function verificaVencedor() {
-  if (xJogador1 > 350) {
+  if (xJogador[0] > 350) {
     textSize(20);
     text("Jogador 1 venceu!", 50, 175);
     noLoop();
   }
-  if (xJogador2 > 350) {
+  if (xJogador[1] > 350) {
     textSize(20);
     text("Jogador 2 venceu!", 50, 175);
+    noLoop();
+  }
+  if (xJogador[2] > 350) {
+    textSize(20);
+    text("Jogador 3 venceu!", 50, 175);
     noLoop();
   }
 }
@@ -31,8 +37,9 @@ function desenhaLinhaDechegada() {
 
 function desenhaJogadores() {
   textSize(40);
-  text("😎", xJogador1, 100);
-  text("❤️", xJogador2, 300);
+  text("😎", xJogador[0], yJogador[0]);
+  text("❤️", xJogador[1], yJogador[1]);
+  text("👽", xJogador[2], yJogador[2]);
 }
 
 function ativaJogo() {
@@ -45,12 +52,15 @@ function ativaJogo() {
     text("CLICK NA TELA PARA INICIAR O JOGO", 50, 175);
   }
 }
-
+//tecla para iniciar o jogo
 function keyReleased() {
   if (key == "a") {
-    xJogador1 += random(20);
+    xJogador[0] += random(20); //tecla "a" move o jogador 1
   }
   if (key == "s") {
-    xJogador2 += random(20);
+    xJogador[1] += random(20); //tecla "s" move o jogador 2
+  }
+  if (key == "d") {
+    xJogador[2] += random(20); //tecla "d" move o jogador 3
   }
 }
