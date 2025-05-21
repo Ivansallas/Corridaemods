@@ -3,7 +3,7 @@ let xJogador = [0, 0, 0];// lista de xjogadoresx
 let yJogador = [100, 200, 300];// lista de yjogadores
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400); 
 }
 
 function draw() {
