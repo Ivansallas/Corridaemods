@@ -9,7 +9,6 @@ function setup() {
 
 function draw() {
   ativaJogo();
-  desenhaJogadores();
   desenhaLinhaDechegada();
   verificaVencedor();
 }
@@ -38,6 +37,7 @@ function desenhaJogadores() {
 function ativaJogo() {
   if (focused == true) {
     background("green");
+    desenhaJogadores();
   } else {
     background("gray");
     textSize(15);
