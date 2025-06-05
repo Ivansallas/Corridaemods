@@ -1,33 +1,26 @@
 //corrida de emojis
-let xJogador = [0, 0, 0];// lista de xjogadoresx
-let yJogador = [100, 200, 300];// lista de yjogadores
+let xJogador = [0, 0, 0, 0]; // lista de xjogadoresx
+let yJogador = [100, 200, 300, 380]; // lista de yjogadores
+let jogadores = ["😎", "❤️", "👽", "🥸"]; // emojis dos jogadores
 
 function setup() {
-  createCanvas(400, 400); 
+  createCanvas(400, 400);
 }
 
 function draw() {
   ativaJogo();
-  desenhaJogadores(); 
+  desenhaJogadores();
   desenhaLinhaDechegada();
   verificaVencedor();
 }
 
 function verificaVencedor() {
-  if (xJogador[0] > 350) {
-    textSize(20);
-    text("Jogador 1 venceu!", 50, 175);
-    noLoop();
-  }
-  if (xJogador[1] > 350) {
-    textSize(20);
-    text("Jogador 2 venceu!", 50, 175);
-    noLoop();
-  }
-  if (xJogador[2] > 350) {
-    textSize(20);
-    text("Jogador 3 venceu!", 50, 175);
-    noLoop();
+  for (let i = 0; i < jogadores.length; i++) {
+    if (xJogador[i] > 350) {
+      textSize(20);
+      text(jogadores[i] + " venceu!", 50, 175);
+      noLoop();
+    }
   }
 }
 
@@ -37,9 +30,9 @@ function desenhaLinhaDechegada() {
 
 function desenhaJogadores() {
   textSize(40);
-  text("😎", xJogador[0], yJogador[0]);
-  text("❤️", xJogador[1], yJogador[1]);
-  text("👽", xJogador[2], yJogador[2]);
+  for (let i = 0; i < jogadores.length; i++) {
+    text(jogadores[i], xJogador[i], yJogador[i]);
+  }
 }
 
 function ativaJogo() {
