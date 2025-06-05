@@ -56,4 +56,7 @@ function keyReleased() {
   if (key == "d") {
     xJogador[2] += random(20); //tecla "d" move o jogador 3
   }
+  if (key == "f") {
+    xJogador[3] += random(20); //tecla "f" move o jogador 4
+  }
 }
