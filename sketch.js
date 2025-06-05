@@ -1,15 +1,22 @@
 //corrida de emojis
-let xJogador = [0, 0, 0, 0]; // lista de xjogadoresx
-let yJogador = [100, 200, 300, 380]; // lista de yjogadores
+let xJogador = []; // lista de xjogadoresx
+let yJogador = []; // lista de yjogadores
 let jogadores = ["😎", "❤️", "👽", "🥸"]; // emojis dos jogadores
+let listaTeclas = ["a", "s", "d", "f"]; // teclas correspondentes aos jogadores
 
 function setup() {
   createCanvas(400, 400);
+
+  let espacamento = height / (jogadores.length + 1); // espaçamento entre emojis
+
+  for (let i = 0; i < jogadores.length; i++) {
+    xJogador[i] = 0;
+    yJogador[i] = (i + 1) * espacamento; // posiciona cada emoji automaticamente na vertical
+  }
 }
 
 function draw() {
   ativaJogo();
-  desenhaJogadores();
   desenhaLinhaDechegada();
   verificaVencedor();
 }
@@ -18,7 +25,7 @@ function verificaVencedor() {
   for (let i = 0; i < jogadores.length; i++) {
     if (xJogador[i] > 350) {
       textSize(20);
-      text(jogadores[i] + " venceu!", 50, 175);
+      text("O vencedor é: " + jogadores[i], 120, 200);
       noLoop();
     }
   }
@@ -38,6 +45,7 @@ function desenhaJogadores() {
 function ativaJogo() {
   if (focused == true) {
     background("green");
+    desenhaJogadores();
   } else {
     background("gray");
     textSize(15);
@@ -47,13 +55,9 @@ function ativaJogo() {
 }
 //tecla para iniciar o jogo
 function keyReleased() {
-  if (key == "a") {
-    xJogador[0] += random(20); //tecla "a" move o jogador 1
-  }
-  if (key == "s") {
-    xJogador[1] += random(20); //tecla "s" move o jogador 2
-  }
-  if (key == "d") {
-    xJogador[2] += random(20); //tecla "d" move o jogador 3
+  for (let i = 0; i < listaTeclas.length; i++) {
+    if (key == listaTeclas[i]) {
+      xJogador[i] += random(20); // move o jogador correspondente
+    }
   }
 }
